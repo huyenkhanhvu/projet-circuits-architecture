@@ -1,0 +1,26 @@
+v2.0 raw
+
+# 0: AND R0, R0, #0 (Init R0=0, Flag Z=1)
+5020
+# 1: BRz #1 (Si Z, sauter 1 ligne -> va à 3)
+0401
+# 2: ADD R0, R0, #1 (ERREUR si exécuté)
+1021
+# 3: JSR #4 (Appel JSR vers ligne 8) -> Sauve PC=4 dans R7
+4804
+# 4: LEA R1, x05 (Retour JSR ici. Charge adresse ligne 10 dans R1)
+E205
+# 5: JSRR R1 (Appel JSRR vers adresse dans R1 -> ligne 10) -> Sauve PC=6 dans R7
+4040
+# 6: HALT (Fin du programme)
+F025
+# 7: NOP (Vide pour l'alignement)
+0000
+# 8: ADD R2, R2, #1 [Subroutine JSR] R2+=1
+14A1
+# 9: RET (Retour vers ligne 4)
+C1C0
+# 10: ADD R3, R3, #1 [Subroutine JSRR] R3+=1
+16E1
+# 11: RET (Retour vers ligne 6)
+C1C0

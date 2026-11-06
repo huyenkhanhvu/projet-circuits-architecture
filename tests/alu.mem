@@ -1,0 +1,20 @@
+v2.0 raw
+
+# AND R1, R1, #0 (Init R1=0)
+5260
+# ADD R1, R1, #5 (R1 = 5)
+1265
+# ADD R2, R1, #-1 (R2 = 4)
+147F
+# AND R3, R1, R2 (R3 = 5 AND 4 = 4)
+5642
+# NOT R4, R1 (R4 = XOR R1, -1 = 0xFFFA)
+987F
+# XOR R5, R1, R2 (R5 = 5 XOR 4 = 1) -> Opcode 1001
+9A82
+# AND R6, R6, #0 (Init R6=0)
+5C60
+# ADD R6, R6, #7 (R6 = 7, binaire 0111)
+1CC7
+# POPCNT R0, R6 (R0 = Popcnt(7) = 3) -> Opcode 1101
+D0C0
